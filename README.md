@@ -17,11 +17,11 @@ The scripts in this repository point to the folder "source_data/" to read the ab
 
 ## Auxiliary data
 
-
+Some auxiliary files defining the geospatial domains at different resolutions and used byt the various scripts are in "auxiliary/".
 
 ## Scripts
 
-Most of the scripts used to process the data for the study are MATLAB scripts.
+Most of the scripts used to process the data for the study are MATLAB scripts. These scripts were written as templates with "wildcard text" that is substituted by a C-Shell script to be run in parallel in a cluster. The tasks were subsetted by weeks within the 1-year period. The file "scripts/Selected_Days.csv" contain the list of individual weeks for which the scripts are used.
 
 ## Outputs
 
