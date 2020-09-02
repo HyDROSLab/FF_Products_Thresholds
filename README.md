@@ -9,20 +9,28 @@ This repository hosts analysis data and programming scripts supporting the study
 
 ## Source (Raw) Data
 
-The data used for this study comes from archived MRMS and FLASH outputs. They are not included in this repository because they can be readily accessed at https://flash.ou.edu/new.
+The data used for this study comes from archived MRMS and FLASH outputs. They are not included in this repository since they can be readily accessed at https://flash.ou.edu/new.
 
-StormData reports for the period of study were obtained as a single CSV file, wchich can be found in the "source_data/" folder. The file name is "events_A4875356EB81004A1C6C9C960CF48888.csv".
+StormData reports for the period of study were obtained as a single CSV file, which can be found in the "source_data/" folder. The file name is "events_A4875356EB81004A1C6C9C960CF48888.csv".
 
 The scripts in this repository point to the folder "source_data/" to read the above datasets where applies.
 
 ## Auxiliary data
 
-Some auxiliary files defining the geospatial domains at different resolutions and used byt the various scripts are in "auxiliary/".
+Some auxiliary files defining the geospatial domains at different resolutions and used by the various scripts are in "auxiliary/".
 
 ## Scripts
 
 Most of the scripts used to process the data for the study are MATLAB scripts. These scripts were written as templates with "wildcard text" that is substituted by a C-Shell script to be run in parallel in a cluster. The tasks were subsetted by weeks within the 1-year period. The file "scripts/Selected_Days.csv" contain the list of individual weeks for which the scripts are used.
 
+There are two sets of scripts corresponding to :
+
+* General - For all products, all seasons and all regions.
+** createHeatMap_ARIexceedances.m 
+
+* Imperviousness analysis - For Unit Streamflow products only, all seasons, all regions and looking at different ranges of basin percent of impervious surfaces.
+** template_preProcess_reports_imAnalysis.m 
+
 ## Outputs
 
-Pre-computed outputs from the scripts in this repository are also included here for convenience. Some of these files are of MATLAB's binary format ('.mat') and some other are simple CSV format.
+Pre-computed outputs from the scripts in this repository are also included here for convenience. Some of these files are of MATLAB's binary format ('.mat') and some other are simple CSV format. These pre-compued outputs have been organized by the two sets of scripts mentioned above (General and Imperviousness Analysis), for which corresponding sub-folders exist.

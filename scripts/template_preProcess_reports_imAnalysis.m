@@ -109,6 +109,6 @@ for t = period_24h
 end
 
 %Save once the run is complete
-save(['../outputs/imperviousness_analysis/Reports_IM_', num2str(class_lo(class)), '-', num2str(class_hi(class)), '_MultiThreshold_', datestr(period(1), 'yyyymmddHHMM'), '-', datestr(period(end), 'yyyymmddHHMM'), '.mat'], 'all_reports_events');
+save(['../outputs/imperviousness_analysis/reports/Reports_IM_', num2str(class_lo(class)), '-', num2str(class_hi(class)), '_MultiThreshold_', datestr(period(1), 'yyyymmddHHMM'), '-', datestr(period(end), 'yyyymmddHHMM'), '.mat'], 'all_reports_events');
 
 exit;
