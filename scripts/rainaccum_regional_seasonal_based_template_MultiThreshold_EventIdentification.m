@@ -6,7 +6,7 @@ product_res = [1/(24*30), 1/(24*30), 1/(24*30), 1/(24*30)];
 
 prod_i = {PRODi};
 
-convertMRMS = '/hydros/humberva/EF5/EF5/bin/MRMSConvert';
+convertMRMS = 'MRMSConvert';
 
 % Thresholds in inches as H&S2018
 all_prod_ths(1,:) = [1, 1.5, 2, 2.5, 3, 3.5 , 4];
@@ -16,17 +16,17 @@ all_prod_ths(4,:) = [2, 2.5, 3, 3.5, 4, 5, 6];
 
 all_prod_th = all_prod_ths(prod_i,:).*25.4; %Convert to mm
 
-root_product_folder = '/hydros/humberva/CONUS_Datasets/MRMS_2015_Present/V12/q3evap/';
+root_product_folder = '../source_data/precip_rate/';
 product = product_name{prod_i};
 outFile_product = product;
 
 product_folder = all_product_folder{prod_i};
 
-mapinfo50km = geotiffinfo('HS2018_Analysis/flash_conus_mask50km.tif');
-mapinfo1km = geotiffinfo('HS2018_Analysis/flash_conus_mask1km.tif');
+mapinfo50km = geotiffinfo('../auxiliary/flash_conus_mask50km.tif');
+mapinfo1km = geotiffinfo('../auxiliary/flash_conus_mask1km.tif');
 
-mask = imread('HS2018_Analysis/flash_conus_mask50km.tif');
-regions_grid = imread('HS2018_Regional_Seasonal_Analysis/corrected_conus_regions_mask50km.tif');
+mask = imread('../auxiliary/flash_conus_mask50km.tif');
+regions_grid = imread('../auxiliary/corrected_conus_regions_mask50km.tif');
 
 total_pixels = numel(mask(mask==1));
 %clear mask;
@@ -50,7 +50,7 @@ real_period = datenum(start_date, 'yyyymmdd.HHMM')-product_interval(prod_i)/24:t
 period_24h = period(1):1:period(end);
 
 %load reports
-load(['HS2018_Regional_Seasonal_Analysis/Completed/Reports_MultiThreshold_', datestr(period(1), 'yyyymmddHHMM'), '-', datestr(period(end), 'yyyymmddHHMM'), '.mat']); 
+load(['../outputs/general/reports/Reports_MultiThreshold_', datestr(period(1), 'yyyymmddHHMM'), '-', datestr(period(end), 'yyyymmddHHMM'), '.mat']); 
 
 %---Initialize Variables---
 pixel_sizes = 50;
@@ -234,7 +234,7 @@ for t = period
 		counters = 0;
 
 		%Save every 24-hr worth of data
-        	save(['HS2018_Regional_Seasonal_Analysis/Partial_MultiThreshold_Run', outFile_product, '_', datestr(period(1), 'yyyymmddHHMM'), '-', datestr(period(end), 'yyyymmddHHMM'), '.mat'], 'all_hits', 'all_misses', 'all_false_alarms', 'all_correct_negatives', 'hits_map', 'false_alarms_map', 'misses_map', 'correct_negatives_map', 'day_counter', '-v7.3');
+        	save(['../outputs/general/', product_folder, 'Partial_MultiThreshold_Run', outFile_product, '_', datestr(period(1), 'yyyymmddHHMM'), '-', datestr(period(end), 'yyyymmddHHMM'), '.mat'], 'all_hits', 'all_misses', 'all_false_alarms', 'all_correct_negatives', 'hits_map', 'false_alarms_map', 'misses_map', 'correct_negatives_map', 'day_counter', '-v7.3');
 
 	end
 	%END If total number of products make a full day
@@ -323,7 +323,7 @@ for t = period
         counters = 0;
 
 	%Save every 24-hr worth of data
-	save(['HS2018_Regional_Seasonal_Analysis/Partial_MultiThreshold_Run', outFile_product, '_', datestr(period(1), 'yyyymmddHHMM'), '-', datestr(period(end), 'yyyymmddHHMM'), '.mat'], 'all_hits', 'all_misses', 'all_false_alarms', 'all_correct_negatives', 'hits_map', 'false_alarms_map', 'misses_map', 'correct_negatives_map', 'day_counter', '-v7.3');
+	save(['../outputs/general/', product_folder, 'Partial_MultiThreshold_Run', outFile_product, '_', datestr(period(1), 'yyyymmddHHMM'), '-', datestr(period(end), 'yyyymmddHHMM'), '.mat'], 'all_hits', 'all_misses', 'all_false_alarms', 'all_correct_negatives', 'hits_map', 'false_alarms_map', 'misses_map', 'correct_negatives_map', 'day_counter', '-v7.3');
 
     end
     %END If total number of products make a full day
@@ -332,7 +332,7 @@ end
 %END Loop through main period of data
 
 %Save once the run is complete
-save(['HS2018_Regional_Seasonal_Analysis/CT_stats_MultiThreshold_Run', outFile_product, '_', datestr(period(1), 'yyyymmddHHMM'), '-', datestr(period(end), 'yyyymmddHHMM'), '.mat'], 'all_hits', 'all_misses', 'all_false_alarms', 'all_correct_negatives', 'hits_map', 'false_alarms_map', 'misses_map', 'correct_negatives_map', 'day_counter', '-v7.3');
+save(['../outputs/general/', product_folder, 'CT_stats_MultiThreshold_Run', outFile_product, '_', datestr(period(1), 'yyyymmddHHMM'), '-', datestr(period(end), 'yyyymmddHHMM'), '.mat'], 'all_hits', 'all_misses', 'all_false_alarms', 'all_correct_negatives', 'hits_map', 'false_alarms_map', 'misses_map', 'correct_negatives_map', 'day_counter', '-v7.3');
 
 %Delete temporary folder
 rmdir(product_folder, 's');
