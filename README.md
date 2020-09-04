@@ -28,23 +28,28 @@ Some auxiliary files defining the Conterminous United States (CONUS) geospatial 
 
 Most of the scripts used to process the data for the study are MATLAB scripts. These scripts were written as templates with "wildcard text" that is substituted by a C-Shell script to be run in parallel in a cluster. The tasks were subsetted by weeks within the 1-year period. The file "scripts/Selected_Days.csv" contain the list of individual weeks for which the scripts are used.
 
-There are two sets of scripts corresponding to :
+There are two sets of scripts corresponding to:
 
-* General - For all products, all seasons and all regions.
-  - createHeatMap_ARIexceedances.m - Creates a heat map of rainfall ARIs exceedances for the period of study
+* *General* - For all products, all seasons and all regions.
+  - **createHeatMap_ARIexceedances.m** - Creates a heat map of rainfall ARIs exceedances for the period of study
 
-  - RunPreProcessReports.csh - Runs pre-processing of StormData reports using MATLAB script template below:
+  - **RunPreProcessReports.csh** - Runs pre-processing of StormData reports using MATLAB script template below:
     - template_preProcess_reportsv2.m
 
-  - RainAccum_SubmitJobs.csh - Runs processing to identify exceedances for rainfall acumulation products for various thresholds using MATLAB script template below:
+  - **RainAccum_SubmitJobs.csh** - Runs processing to identify exceedances for rainfall acumulation products for various thresholds using MATLAB script template below:
     - rainaccum_regional_seasonal_based_template_MultiThreshold_EventIdentification.m
 
-      - Note: **MRMSConvert** is a tool part of the EF5 toolset, another publicly available repository at https://github.com/HyDROSLab/EF5/blob/master/compile_trmm_tools.csh. This tool is necessary to use the "rainaccum_regional_seasonal_based_template_MultiThreshold_EventIdentification.m" script that accumulates MRMS precipitation rates on MRMS binary format.
+      - Note: The script above uses a tool invoked as **MRMSConvert**. This is a tool part of the EF5 toolset, another publicly available repository at https://github.com/HyDROSLab/EF5/blob/master/compile_trmm_tools.csh. This tool is necessary to use the "rainaccum_regional_seasonal_based_template_MultiThreshold_EventIdentification.m" script that accumulates MRMS precipitation rates on MRMS binary format.
 
-* Imperviousness analysis - For Unit Streamflow products only, all seasons, all regions and looking at different ranges of basin percent of impervious surfaces.
-  - RunPreProcessReports_IM_analysis.csh
-  - template_preProcess_reports_imAnalysis.m 
+* *Imperviousness analysis* - For Unit Streamflow products only, all seasons, all regions and looking at different ranges of basin percent of impervious surfaces.
+  - **RunPreProcessReports_IM_analysis.csh** - Runs pre-processing of StormData reports using MATLAB script template below:
+    - template_preProcess_reports_imAnalysis.m 
 
 ## Outputs
 
-Pre-computed outputs from the scripts in this repository are also included here for convenience. Some of these files are of MATLAB's binary format ('.mat') and some other are simple CSV format. These pre-compued outputs have been organized by the two sets of scripts mentioned above (General and Imperviousness Analysis), for which corresponding sub-folders exist.
+Pre-computed outputs from the scripts in this repository are also included here for convenience. Some of these files are of MATLAB's binary format ('.mat') and some other are simple CSV format. These pre-computed outputs have been organized by the two sets of scripts mentioned above (General and Imperviousness Analysis), for which corresponding sub-folders exist. Sub-folders were also organized for each individual product to store weekly .mat files.
+
+CSV files within the outputs/general/ and outputs/imperviousness_analysis/ contain the contingency tables statistics used for the analysis described in Gourley and Vergara (2020). Two sets of each of these files were derived: one containing all weeks within the 1-year period, and a second one excluding several weeks between late December of 2018 and mid February of 2019. The latter set was produced to account for the impacts of the blackout experienced during the government shutdown of December 2018-January 2019. A couple of sample file names corresponding to these two sets are provided below:
+
+* outputs/general/hs18_noShutDown_regional_and_seasonal_All_weeks_contingency_stats_24H.ARI.csv - Excludes weeks impacted by shutdown
+* outputs/general/hs18_regional_and_seasonal_All_weeks_contingency_stats_24H.ARI.csv - Based on the entire `-year period of study
