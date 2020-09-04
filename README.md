@@ -30,7 +30,7 @@ Most of the scripts used to process the data for the study are MATLAB scripts. T
 
 There are two sets of scripts corresponding to:
 
-* *General* - For all products, all seasons and all regions.
+### *General* - For all products, all seasons and all regions.
   - **createHeatMap_ARIexceedances.m** - Creates a heat map of rainfall ARIs exceedances for the period of study
 
   - **RunPreProcessReports.csh** - Runs pre-processing of StormData reports using MATLAB script template below:
@@ -48,7 +48,7 @@ There are two sets of scripts corresponding to:
 
   - **ShutDownCTconsolidateResults_Regional_n_Seasonal_all_products.m** - Same as above, but excluding weeks impacted by government shutdown
 
-* *Imperviousness analysis* - For Unit Streamflow products only, all seasons, all regions and looking at different ranges of basin percent of impervious surfaces: 0-6%, 6-50%, and 50-100%.
+### *Imperviousness analysis* - For Unit Streamflow products only, all seasons, all regions and looking at different ranges of basin percent of impervious surfaces: 0-6%, 6-50%, and 50-100%.
   - **RunPreProcessReports_IM_analysis.csh** - Runs pre-processing of StormData reports for various ranges of basin percent of impervious surfaces  using MATLAB script template below:
     - template_preProcess_reports_imAnalysis.m 
 
