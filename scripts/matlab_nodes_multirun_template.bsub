@@ -1,0 +1,20 @@
+#!/bin/tcsh
+
+# Files that output information about your run. You will have one per single run, so it is recommended you created a folder for these files.
+# The RUN_ID will be replaced with an ID your script will specify so you can identify a particular run. The {RUN_ID} will be replaced recursively.
+#BSUB -o threshold_analysis_p{PRODi}w{WEEK}_%J_stdout.txt
+#BSUB -e threshold_analysis_p{PRODi}w{WEEK}_%J_stderr.txt
+
+#BSUB -u YOUREMAIL@ou.edu
+
+# This is a name or ID for your run that you will see when you do "bjobs" to check the status of your run in the cluster.
+#BSUB -J "p{PRODi}w{WEEK}"
+
+#Change directory where your Matlab script is
+cd scripts/
+
+# Run your matlab script. {matlab_script} will be replaced recursively.
+date
+time \
+  matlab -nodisplay -r {MATLAB_SCRIPT} 
+date

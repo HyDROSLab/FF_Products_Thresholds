@@ -26,12 +26,19 @@ Most of the scripts used to process the data for the study are MATLAB scripts. T
 There are two sets of scripts corresponding to :
 
 * General - For all products, all seasons and all regions.
-- createHeatMap_ARIexceedances.m 
+  - createHeatMap_ARIexceedances.m 
 
-Note: **MRMSConvert** is a tool part of the EF5 toolset, another publicly available repository at https://github.com/HyDROSLab/EF5/blob/master/compile_trmm_tools.csh. This tool is necessary to use the "rainaccum_regional_seasonal_based_template_MultiThreshold_EventIdentification.m" script that accumulates MRMS precipitation rates on MRMS binary format.
+  - RunPreProcessReports.csh
+  - template_preProcess_reportsv2
+
+  - RainAccum_SubmitJobs.csh
+  - rainaccum_regional_seasonal_based_template_MultiThreshold_EventIdentification.m
+
+  Note: **MRMSConvert** is a tool part of the EF5 toolset, another publicly available repository at https://github.com/HyDROSLab/EF5/blob/master/compile_trmm_tools.csh. This tool is necessary to use the "rainaccum_regional_seasonal_based_template_MultiThreshold_EventIdentification.m" script that accumulates MRMS precipitation rates on MRMS binary format.
 
 * Imperviousness analysis - For Unit Streamflow products only, all seasons, all regions and looking at different ranges of basin percent of impervious surfaces.
-- template_preProcess_reports_imAnalysis.m 
+  - RunPreProcessReports_IM_analysis.csh
+  - template_preProcess_reports_imAnalysis.m 
 
 ## Outputs
 
