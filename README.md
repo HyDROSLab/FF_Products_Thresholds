@@ -19,10 +19,10 @@ The scripts in this repository point to the folder "source_data/" to read the ab
 
 Some auxiliary files defining the Conterminous United States (CONUS) geospatial domains at different resolutions and used by the various scripts are in "auxiliary/"
 
-* corrected_conus_regions_mask50km.tif - A raster mask of the regions over CONUS domain at 50-km pixel resolution
-* flash_conus_mask1km.tif - A raster mask of the CONUS FLASH domain at 1-km pixel resolution
-* flash_conus_mask50km.tif - A raster mask of the CONUS FLASH domain at 50-km pixel resolution
-* max_1km_BasinImperviousness_50km.tif - A raster containing maximum values of basin percent of impervious surfaces resampled to 50-km pixel resolution
+* **corrected_conus_regions_mask50km.tif** - A raster mask of the regions over CONUS domain at 50-km pixel resolution
+* **flash_conus_mask1km.tif** - A raster mask of the CONUS FLASH domain at 1-km pixel resolution
+* **flash_conus_mask50km.tif** - A raster mask of the CONUS FLASH domain at 50-km pixel resolution
+* **max_1km_BasinImperviousness_50km.tif** - A raster containing maximum values of basin percent of impervious surfaces resampled to 50-km pixel resolution
 
 ## Scripts
 
@@ -51,5 +51,5 @@ Pre-computed outputs from the scripts in this repository are also included here 
 
 CSV files within the outputs/general/ and outputs/imperviousness_analysis/ contain the contingency tables statistics used for the analysis described in Gourley and Vergara (2020). Two sets of each of these files were derived: one containing all weeks within the 1-year period, and a second one excluding several weeks between late December of 2018 and mid February of 2019. The latter set was produced to account for the impacts of the blackout experienced during the government shutdown of December 2018-January 2019. A couple of sample file names corresponding to these two sets are provided below:
 
-* outputs/general/hs18_noShutDown_regional_and_seasonal_All_weeks_contingency_stats_24H.ARI.csv - Excludes weeks impacted by shutdown
-* outputs/general/hs18_regional_and_seasonal_All_weeks_contingency_stats_24H.ARI.csv - Based on the entire `-year period of study
+* **outputs/general/hs18_noShutDown_regional_and_seasonal_All_weeks_contingency_stats_24H.ARI.csv** - Excludes weeks impacted by shutdown
+* **outputs/general/hs18_regional_and_seasonal_All_weeks_contingency_stats_24H.ARI.csv** - Based on the entire 1-year period of study
