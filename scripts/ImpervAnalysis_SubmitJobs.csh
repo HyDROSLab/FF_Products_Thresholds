@@ -3,7 +3,7 @@
 set products="1 13 14"
 set classes="1 2 3"
 
-foreach week (`seq 3 1 54`)
+foreach week (`seq 2 1 54`)
 	set startdate=`sed -n "$week"p Selected_Days.csv | cut -d"," -f1`
 	set enddate=`sed -n "$week"p Selected_Days.csv | cut -d"," -f2`
 	foreach prod_i ($products)

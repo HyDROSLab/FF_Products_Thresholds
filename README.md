@@ -49,13 +49,13 @@ There are two sets of scripts corresponding to:
   - **ShutDownCTconsolidateResults_Regional_n_Seasonal_all_products.m** - Same as above, but excluding weeks impacted by government shutdown
 
 * *Imperviousness analysis* - For Unit Streamflow products only, all seasons, all regions and looking at different ranges of basin percent of impervious surfaces: 0-6%, 6-50%, and 50-100%.
-  - **RunPreProcessReports_IM_analysis.csh** - Runs pre-processing of StormData reports using MATLAB script template below:
+  - **RunPreProcessReports_IM_analysis.csh** - Runs pre-processing of StormData reports for various ranges of basin percent of impervious surfaces  using MATLAB script template below:
     - template_preProcess_reports_imAnalysis.m 
 
   - **ImpervAnalysis_SubmitJobs.csh** - Runs processing to identify exceedances for all unit streamflow products for various thresholds and ranges of basin percent of impervious surfaces using MATLAB script template below:
     - by_imperviousness_regional_seasonal_based_template_hs2018_MultiThreshold_EventIdentification.m
 
-  - **IMAnalysis_ShutDownCTconsolidateResults_Regional_n_Seasonal.m** - Runs post-processing on all identified exceedances for various ranges of basin percent of impervious surfaces and produces tables with contingency statistics (hits, false alarms, misses and correct negatives) and scores (POD, FAR, CSI, and ETS). This script exludes weeks impacted by government shutdown
+  - **IMAnalysis_ShutDownCTconsolidateResults_Regional_n_Seasonal.m** - Runs post-processing on all identified exceedances for various ranges of basin percent of impervious surfaces and produces tables with contingency statistics (hits, false alarms, misses and correct negatives) and scores (POD, FAR, CSI, and ETS). This script excludes weeks impacted by government shutdown
 
 ## Outputs
 
