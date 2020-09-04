@@ -36,20 +36,34 @@ There are two sets of scripts corresponding to:
   - **RunPreProcessReports.csh** - Runs pre-processing of StormData reports using MATLAB script template below:
     - template_preProcess_reportsv2.m
 
+  - **SubmitJobs.csh** - Runs processing to identify exceedances for all products but rainfall acumulation products (see below) for various thresholds using MATLAB script template below:
+    - regional_seasonal_based_template_hs2018_MultiThreshold_EventIdentification.m
+
   - **RainAccum_SubmitJobs.csh** - Runs processing to identify exceedances for rainfall acumulation products for various thresholds using MATLAB script template below:
     - rainaccum_regional_seasonal_based_template_MultiThreshold_EventIdentification.m
 
       - Note: The script above uses a tool invoked as **MRMSConvert**. This is a tool part of the EF5 toolset, another publicly available repository at https://github.com/HyDROSLab/EF5/blob/master/compile_trmm_tools.csh. This tool is necessary to use the "rainaccum_regional_seasonal_based_template_MultiThreshold_EventIdentification.m" script that accumulates MRMS precipitation rates on MRMS binary format.
 
-* *Imperviousness analysis* - For Unit Streamflow products only, all seasons, all regions and looking at different ranges of basin percent of impervious surfaces.
+  - **CTconsolidateResults_Regional_n_Seasonal_all_products.m** - Runs post-processing on all identified exceedances and produces tables with contingency statistics (hits, false alarms, misses and correct negatives) and scores (POD, FAR, CSI, and ETS)
+
+  - **ShutDownCTconsolidateResults_Regional_n_Seasonal_all_products.m** - Same as above, but excluding weeks impacted by government shutdown
+
+* *Imperviousness analysis* - For Unit Streamflow products only, all seasons, all regions and looking at different ranges of basin percent of impervious surfaces: 0-6%, 6-50%, and 50-100%.
   - **RunPreProcessReports_IM_analysis.csh** - Runs pre-processing of StormData reports using MATLAB script template below:
     - template_preProcess_reports_imAnalysis.m 
+
+  - **ImpervAnalysis_SubmitJobs.csh** - Runs processing to identify exceedances for all unit streamflow products for various thresholds and ranges of basin percent of impervious surfaces using MATLAB script template below:
+    - by_imperviousness_regional_seasonal_based_template_hs2018_MultiThreshold_EventIdentification.m
+
+  - **IMAnalysis_ShutDownCTconsolidateResults_Regional_n_Seasonal.m** - Runs post-processing on all identified exceedances for various ranges of basin percent of impervious surfaces and produces tables with contingency statistics (hits, false alarms, misses and correct negatives) and scores (POD, FAR, CSI, and ETS). This script exludes weeks impacted by government shutdown
 
 ## Outputs
 
 Pre-computed outputs from the scripts in this repository are also included here for convenience. Some of these files are of MATLAB's binary format ('.mat') and some other are simple CSV format. These pre-computed outputs have been organized by the two sets of scripts mentioned above (General and Imperviousness Analysis), for which corresponding sub-folders exist. Sub-folders were also organized for each individual product to store weekly .mat files.
 
-CSV files within the outputs/general/ and outputs/imperviousness_analysis/ contain the contingency tables statistics used for the analysis described in Gourley and Vergara (2020). Two sets of each of these files were derived: one containing all weeks within the 1-year period, and a second one excluding several weeks between late December of 2018 and mid February of 2019. The latter set was produced to account for the impacts of the blackout experienced during the government shutdown of December 2018-January 2019. A couple of sample file names corresponding to these two sets are provided below:
+CSV files within the outputs/general/ and outputs/imperviousness_analysis/ contain the contingency tables statistics used for the analysis described in Gourley and Vergara (2020). Two sets of each of these files were derived for the "general" runs: one containing all weeks within the 1-year period, and a second one excluding several weeks between late December of 2018 and mid February of 2019. The latter set was produced to account for the impacts of the blackout experienced during the government shutdown of December 2018-January 2019. A couple of sample file names corresponding to these two sets are provided below:
 
-* **outputs/general/hs18_noShutDown_regional_and_seasonal_All_weeks_contingency_stats_24H.ARI.csv** - Excludes weeks impacted by shutdown
+* **outputs/general/hs18_noShutDown_regional_and_seasonal_All_weeks_contingency_stats_24H.ARI.csv** - Excludes weeks impacted by government shutdown
 * **outputs/general/hs18_regional_and_seasonal_All_weeks_contingency_stats_24H.ARI.csv** - Based on the entire 1-year period of study
+
+Some of the MATLAB scripts produce "Partial" results (output file naming would have a "Partial" prefix) to save intermediate progress in case of interruptions during the processing task.
