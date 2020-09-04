@@ -17,7 +17,12 @@ The scripts in this repository point to the folder "source_data/" to read the ab
 
 ## Auxiliary data
 
-Some auxiliary files defining the geospatial domains at different resolutions and used by the various scripts are in "auxiliary/".
+Some auxiliary files defining the Conterminous United States (CONUS) geospatial domains at different resolutions and used by the various scripts are in "auxiliary/"
+
+* corrected_conus_regions_mask50km.tif - A raster mask of the regions over CONUS domain at 50-km pixel resolution
+* flash_conus_mask1km.tif - A raster mask of the CONUS FLASH domain at 1-km pixel resolution
+* flash_conus_mask50km.tif - A raster mask of the CONUS FLASH domain at 50-km pixel resolution
+* max_1km_BasinImperviousness_50km.tif - A raster containing maximum values of basin percent of impervious surfaces resampled to 50-km pixel resolution
 
 ## Scripts
 
@@ -26,15 +31,15 @@ Most of the scripts used to process the data for the study are MATLAB scripts. T
 There are two sets of scripts corresponding to :
 
 * General - For all products, all seasons and all regions.
-  - createHeatMap_ARIexceedances.m 
+  - createHeatMap_ARIexceedances.m - Creates a heat map of rainfall ARIs exceedances for the period of study
 
-  - RunPreProcessReports.csh
-  - template_preProcess_reportsv2
+  - RunPreProcessReports.csh - Runs pre-processing of StormData reports using MATLAB script template below:
+    - template_preProcess_reportsv2.m
 
-  - RainAccum_SubmitJobs.csh
-  - rainaccum_regional_seasonal_based_template_MultiThreshold_EventIdentification.m
+  - RainAccum_SubmitJobs.csh - Runs processing to identify exceedances for rainfall acumulation products for various thresholds using MATLAB script template below:
+    - rainaccum_regional_seasonal_based_template_MultiThreshold_EventIdentification.m
 
-  Note: **MRMSConvert** is a tool part of the EF5 toolset, another publicly available repository at https://github.com/HyDROSLab/EF5/blob/master/compile_trmm_tools.csh. This tool is necessary to use the "rainaccum_regional_seasonal_based_template_MultiThreshold_EventIdentification.m" script that accumulates MRMS precipitation rates on MRMS binary format.
+      - Note: **MRMSConvert** is a tool part of the EF5 toolset, another publicly available repository at https://github.com/HyDROSLab/EF5/blob/master/compile_trmm_tools.csh. This tool is necessary to use the "rainaccum_regional_seasonal_based_template_MultiThreshold_EventIdentification.m" script that accumulates MRMS precipitation rates on MRMS binary format.
 
 * Imperviousness analysis - For Unit Streamflow products only, all seasons, all regions and looking at different ranges of basin percent of impervious surfaces.
   - RunPreProcessReports_IM_analysis.csh
