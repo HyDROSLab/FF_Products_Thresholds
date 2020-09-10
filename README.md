@@ -9,11 +9,11 @@ This repository hosts analysis data and programming scripts supporting the study
 
 ## Source (Raw) Data
 
-The data used for this study comes from archived MRMS and FLASH outputs. They are not included in this repository since they can be readily accessed at https://flash.ou.edu/new.
+Excessive storage requirements precluded making the raw files (FLASH outputs and MRMS v12 QPE files) available. Instead, daily exceedances for all thresholds for all flash flood products can be used to test the results for reproducibility. Most of FLASH outputs can be readily accessed at https://flash.ou.edu/new, while MRMS v12 QPE files can be accessed from the NOAA/NWS/National Centers for Environmental Prediction beginning in Oct. 2020.
 
 StormData reports for the period of study were obtained as a single CSV file, which can be found in the "source_data/" folder. The file name is "events_A4875356EB81004A1C6C9C960CF48888.csv".
 
-The scripts in this repository point to the folder "source_data/" to read the above datasets where applies.
+The scripts in this repository point to the folder "source_data/" to read the above datasets where applies. If it is desired to re-build daily exceedances, then the raw data must be independently obtained and placed in the corresponding product folder.
 
 ## Auxiliary data
 
