@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4022675.svg)](https://doi.org/10.5281/zenodo.4022675)
+
 # Flash Floods (FF) Products Thresholds
 
 This repository hosts analysis data and programming scripts supporting the study by Gourley and Vergara (2020) on the definition of threshold levels for products used in US NOAA NWS warning operations for flash floods. The analysis data were derived from archived raster data from the Multi-Radar Multi-Sensor (MRMS) – Flooded Locations And Simulated Hydrographs (FLASH) system. The study period was June 2018 through May 2019. The flash flood products considered were:
